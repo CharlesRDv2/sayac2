@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>13 Eylül'e Geri Sayım</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding-top: 20%;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>13 Eylül 2025'e Kalan Süre:</h1>
+  <div id="countdown">Yükleniyor...</div>
+  <script>
+    const hedef = new Date("2025-09-13T00:00:00").getTime();
+    function guncelle() {
+      const simdi = new Date().getTime();
+      const fark = hedef - simdi;
+      if (fark <= 0) {
+        document.getElementById("countdown").innerText = "Geldik be!";
+        return;
+      }
+      const sn = Math.floor(fark / 1000);
+      const ay = Math.floor(sn / (30.44 * 24 * 3600));
+      const gun = Math.floor((sn % (30.44 * 24 * 3600)) / (24 * 3600));
+      const saat = Math.floor((sn % (24 * 3600)) / 3600);
+      const dk = Math.floor((sn % 3600) / 60);
+      const saniye = sn % 60;
+      document.getElementById("countdown").innerText =
+        `${ay} ay ${gun} gün ${saat} saat ${dk} dakika ${saniye} saniye`;
+    }
+    setInterval(guncelle, 1000);
+    guncelle();
+  </script>
+</body>
+</html>
