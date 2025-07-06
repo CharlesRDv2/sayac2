@@ -1,0 +1,2 @@
+# sayac2
+HAYATIMIN AŞKI DÖNÜYOR
